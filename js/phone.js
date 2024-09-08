@@ -38,13 +38,23 @@ const displyPhone = (phones) => {
   </div>`;
     phoneContainer.appendChild(phoneCard);
   });
+  toggleLoadingSpinner(false);
 };
 
 const handlePhone = () => {
+  toggleLoadingSpinner(true);
   const searchField = document.getElementById("input-field");
   const searchText = searchField.value;
 
   loadPhone(searchText);
 };
 
+const toggleLoadingSpinner = (isLoading) => {
+  const loadingspinner = document.getElementById("load-spinner");
+  if (isLoading) {
+    loadingspinner.classList.remove("hidden");
+  } else {
+    loadingspinner.classList.add("hidden");
+  }
+};
 // loadPhone();
